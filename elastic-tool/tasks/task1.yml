@@ -1,0 +1,31 @@
+---
+  - name: adding elasticsearch GPG key
+    apt_key:
+        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        state: present
+        validate_certs: yes
+        keyring: /usr/share/keyrings/elasticsearch-keyring.gpg
+         
+  - name: now installing transport-https
+    apt:
+        name: apt-transport-https
+        state: present
+        
+  - name: adding elasticsearch repository
+    apt_repository:
+        repo: 'deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main'
+        state: present
+
+  - name: installing language
+    apt:
+        update_cache: yes
+        name: "{{ language }}"
+        state: present
+
+      
+  - name: installing tool
+    apt:
+        update_cache: yes
+        name: "{{ tools }}"
+        state: present
+    notify: start my service

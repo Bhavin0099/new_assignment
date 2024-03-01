@@ -1,0 +1,11 @@
+---
+# vars file for elastic-tool
+tools:
+  - elasticsearch
+  - kibana
+  - logstash
+
+language:
+  - openjdk-8-jdk
+
+elasticsearch_host: 3.111.38.155

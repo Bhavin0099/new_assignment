@@ -1,0 +1,12 @@
+---
+- name: jinja2 template config for elastic
+  template:
+      src: elastic.j2
+      dest: /etc/elasticsearch/elasticsearch.yml
+      mode: 0644
+
+#- name: jinja2 template config for kibana
+#  template:
+#      src: kibana.j2
+#      dest: /etc/kibana/kibana.yml
+#      mode: 0644

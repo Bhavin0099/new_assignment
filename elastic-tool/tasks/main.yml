@@ -1,0 +1,5 @@
+---
+# tasks file for elastic-tool
+  - include_tasks: tasks/task1.yml
+
+  - include_tasks: tasks/task2.yml

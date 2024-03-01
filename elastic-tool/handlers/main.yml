@@ -1,0 +1,15 @@
+---
+
+#- name: start my service
+#  service:
+#      name: " {{ tools }}"
+#      state: started
+#  loop: "{{ tools }}"
+
+# handlers/main.yml
+- name: start my service
+  service:
+    name: "{{ item }}"
+    state: started
+  loop: "{{ tools }}"
+ 
