@@ -7,8 +7,8 @@ regions:
 filters:
    tag:Name: Elasticsearch_private_slave
 
-groups:
-  ubuntu: "'elasticsearch' in tags.tool"
-keyed_groups:
-  - key: tags
-    prefix: tag
+#groups:
+ # ubuntu: "'elasticsearch' in tags.tool"
+#keyed_groups:
+ # - key: tags
+  #  prefix: tag
