@@ -1,6 +1,6 @@
 ---
 - name: here my role for elastic
-  hosts: software
+  hosts: aws_ec2
   become: true
   roles:
     - elastic-tool
