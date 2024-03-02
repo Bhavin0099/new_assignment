@@ -30,28 +30,28 @@ resource "aws_vpc_peering_connection_options" "accepter" {
   }
 }
 
-data "aws_route_table" "peer" {
+data "aws_route_tables" "peer" {
   provider = aws.peer
   vpc_id = var.peer_vpc_id_created
 }
 
 resource "aws_route" "peer_route" {
   provider = aws.peer
-  count           = length(data.aws_route_table.peer.id)
-  route_table_id  = data.aws_route_table.peer.id[count.index]
+  count           = length(data.aws_route_tables.peer.id)
+  route_table_id  = data.aws_route_tables.peer.id[count.index]
   destination_cidr_block = var.vpc_id_jenkins_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.vpc_peering_jenkins.id
 }
 
-data "aws_route_table" "jenkins" {
+data "aws_route_tables" "jenkins" {
   provider = aws.jenkins
   vpc_id = var.peer_vpc_id_created
 }
 
 resource "aws_route" "jenkins_route" {
   provider = aws.peer
-  count           = length(data.aws_route_table.jenkins.id)
-  route_table_id  = data.aws_route_table.jenkins.id[count.index]
+  count           = length(data.aws_route_tables.jenkins.id)
+  route_table_id  = data.aws_route_tables.jenkins.id[count.index]
   destination_cidr_block = var.peer_vpc_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.vpc_peering_jenkins.id
 }
