@@ -10,6 +10,8 @@ root_vpc_tag = "Elasticsearch_vpc"
 
 root_vpc_id_jenkins = "vpc-0e3056d8fcb0dc815" 
 
+jenkins_route_table_id = ["rtb-0672877b6fa9aa27e"]
+
 root_peer_owner_id = 362382172439
 
 root_vpc_id_jenkins_cidr= "172.31.0.0/16"
