@@ -21,14 +21,14 @@ resource "aws_vpc_peering_connection_options" "jenkins" {
   }
 }
 
-#resource "aws_vpc_peering_connection_options" "accepter" {
-#  provider                  = aws.peer
-# vpc_peering_connection_id = aws_vpc_peering_connection_accepter.peer_accepter.id
-#
- # accepter {
-  #  allow_remote_vpc_dns_resolution = true
-  #}
-#}
+resource "aws_vpc_peering_connection_options" "accepter" {
+  provider                  = aws.peer
+ vpc_peering_connection_id = aws_vpc_peering_connection_accepter.peer_accepter.id
+
+  accepter {
+    allow_remote_vpc_dns_resolution = true
+  }
+}
 
 resource "aws_route" "peer_route" {
   provider = aws.peer
