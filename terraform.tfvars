@@ -7,13 +7,13 @@ root_vpc = "10.0.0.0/16"
 root_vpc_tag = "Elasticsearch_vpc"
 
 ################ for public/private subnet #################
-root_public_subnet_count_number = 1
+
 
 root_public_subnet_cidr = ["10.0.64.0/18"]
 
 root_public_subnet_tag = "elasticsearch_public_subnet"
 
-root_private_subnet_count_number = 1
+
 
 root_private_subnet_cidr = ["10.0.16.0/20"]
 
