@@ -38,7 +38,7 @@ data "aws_route_table" "peer" {
 resource "aws_route" "peer_route" {
   provider = aws.peer
   count           = length(data.aws_route_table.peer.id)
-  route_table_id  = data.aws_route_table.selected.id[count.index]
+  route_table_id  = data.aws_route_table.peer.id[count.index]
   destination_cidr_block = var.vpc_id_jenkins_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.vpc_peering_jenkins.id
 }
