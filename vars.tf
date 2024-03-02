@@ -18,6 +18,22 @@ variable "root_vpc" {
   description = "this is vpc cidr form root var.tf file"
 }
 
+############### for_vpc_peering  ################
+
+
+
+variable "root_vpc_id_jenkins" {
+  type = string
+  default = "vpc-0e3056d8fcb0dc815"
+  description = "this is root_vpc_id_jenkins"
+}
+
+variable "root_peer_owner_id" {
+  type = number
+  default = 362382172439
+  description = "this is root_peer_owner_id"
+}
+
 ################ for public/private subnet #################
 
 variable "root_public_subnet_count_number" {
