@@ -1,15 +1,69 @@
 pipeline {
-    agent any
-      environment {
+   
+   environment {
          AWS_ACCESS_KEY = credentials('AWS_ACCESS_KEY')
          AWS_SECRET_KEY = credentials('AWS_SECRET_KEY')
     }
 
-    stages {
-        stage('Elasticsearch') {
-            steps{
-               sh 'ansible-playbook ES_try/test.yml'
-            }
-        }
-    }
+   agent any
+   parameters {
+        choice(
+            choices: ['plan' , 'apply' , 'destroy'],
+            description: 'please select terraform action to perform',
+            name: 'ACTION')
+    }    
+    
+   stages {
+      stage('Checkout') {
+         steps {
+            checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bhavin0099/new_assignment.git']]])
+         }
+      }
+
+      stage('Terraform Init') {
+         steps {
+            sh 'terraform init'
+         }
+      }
+
+      stage('Terraform plan') {
+         when {
+             expression { params.ACTION == 'plan' || params.ACTION == 'apply'  }
+         }
+         steps {
+             sh(
+                label:  'Terraform Plan',
+                script: "terraform plan"
+            )
+         }
+      }
+      
+      stage('Terraform apply') {
+         when {
+             expression { params.ACTION == 'apply' }
+         }
+         steps {
+            input(message: 'Click "proceed" to approve the run for Terraform apply')
+            sh(
+                label:  'Terraform Apply',
+                script: 'terraform apply -auto-approve'
+            )
+            
+            sh 'sleep 3m'
+         }
+      }
+      
+      stage('Terraform destroy') {
+         when {
+             expression { params.ACTION == 'destroy' }
+         }
+         steps {
+            input(message: 'Click "proceed" to approve the run for Terraform destroy')
+            sh(
+                label:  'Terraform destroy',
+                script: 'terraform destroy -auto-approve'
+            )
+      }
+   }
+}
 }
