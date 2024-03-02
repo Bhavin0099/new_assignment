@@ -10,6 +10,11 @@ variable "vpc_id_jenkins" {
   type = string
 }
 
+variable "vpc_id_jenkins_cidr" {
+  type = string
+}
+
+
 variable "route_table_ids_from_vpc_peering" {
   type = list(string)
 }
