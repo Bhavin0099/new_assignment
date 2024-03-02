@@ -3,6 +3,11 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias  = "usw2"
+  alias  = "jenkins"
   region = "ap-south-1"
+}
+
+provider "aws" {
+  alias  = "peer"
+  region = "ap-southeast-1"
 }
