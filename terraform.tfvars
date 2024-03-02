@@ -6,6 +6,11 @@ root_vpc = "10.0.0.0/16"
 
 root_vpc_tag = "Elasticsearch_vpc"
 
+############### for vpc peering ##########
+
+root_vpc_id_jenkins = "vpc-0e3056d8fcb0dc815" 
+
+
 ################ for public/private subnet #################
 
 
