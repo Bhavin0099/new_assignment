@@ -37,8 +37,8 @@ data "aws_route_tables" "peer" {
 
 resource "aws_route" "peer_route" {
   provider = aws.peer
-  count           = length(data.aws_route_tables.peer.id)
-  route_table_id  = data.aws_route_tables.peer.id[count.index]
+  count           = length(data.aws_route_tables.peer.ids)
+  route_table_id  = data.aws_route_tables.peer.ids[count.index]
   destination_cidr_block = var.vpc_id_jenkins_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.vpc_peering_jenkins.id
 }
@@ -50,8 +50,8 @@ data "aws_route_tables" "jenkins" {
 
 resource "aws_route" "jenkins_route" {
   provider = aws.peer
-  count           = length(data.aws_route_tables.jenkins.id)
-  route_table_id  = data.aws_route_tables.jenkins.id[count.index]
+  count           = length(data.aws_route_tables.jenkins.ids)
+  route_table_id  = data.aws_route_tables.jenkins.ids[count.index]
   destination_cidr_block = var.peer_vpc_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.vpc_peering_jenkins.id
 }
