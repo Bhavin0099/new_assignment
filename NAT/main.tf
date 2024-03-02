@@ -1,6 +1,6 @@
 
 resource "aws_eip" "eip_NAT" {
-  domain = var.elastic_ip
+  domain = true
 }
 
 resource "aws_nat_gateway" "NAT_gateway_block" {
