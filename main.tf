@@ -10,8 +10,8 @@ module "for_vpc" {
 
 module "for_vpc_peering" {
   providers = {
-    aws = aws.jenkins
-    aws = aws.peer
+    aws.jenkins = aws.jenkins
+    aws.peer = aws.peer
   }
   source = "./vpc_peering"
   peer_vpc_id_created = module.for_vpc.vpc_output
