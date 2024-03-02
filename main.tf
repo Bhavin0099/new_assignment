@@ -15,6 +15,7 @@ module "for_vpc_peering" {
   }
   source = "./vpc_peering"
   peer_vpc_id_created = module.for_vpc.vpc_output
+  peer_vpc_cidr = var.root_vpc
   vpc_id_jenkins = var.root_vpc_id_jenkins
   vpc_id_jenkins_cidr = var.root_vpc_id_jenkins_cidr
   route_table_ids_from_vpc_peering = [module.for_route.private_route_output, module.for_route.public_route_output]
