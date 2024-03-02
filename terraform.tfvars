@@ -65,7 +65,7 @@ root_private_key = "Elasticsearch_private_key"
 
 root_private_instance_count_number = 1
 
-root_instance_ami = "ami-0728ff6537bad32a5"
+root_instance_ami = "ami-049fd3115207ca9ef"
 
 root_private_instance_type = "t2.medium"
 
