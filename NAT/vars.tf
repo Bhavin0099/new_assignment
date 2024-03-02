@@ -1,8 +1,4 @@
-variable "elastic_ip" {
-  type = string
-  default = "vpc"
-  description = "this block is for elastic ip for NAT gateway"
-}
+
 
 variable "NAT_gateway_tag" {
   type = string
