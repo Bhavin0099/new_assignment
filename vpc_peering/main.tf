@@ -3,6 +3,14 @@ resource "aws_vpc_peering_connection" "vpc_peering_jenkins" {
   peer_vpc_id   = var.peer_vpc_id_created
   vpc_id        = var.vpc_id_jenkins
   auto_accept   = true
+
+accepter {
+    allow_remote_vpc_dns_resolution = true
+  }
+
+  requester {
+    allow_remote_vpc_dns_resolution = true
+  }
 }
 
 data "aws_vpc" "local_vpc" {
