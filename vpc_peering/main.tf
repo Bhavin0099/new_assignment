@@ -1,7 +1,7 @@
 resource "aws_vpc_peering_connection" "vpc_peering_jenkins" {
   peer_owner_id = var.peer_owner_id
   peer_vpc_id   = var.peer_vpc_id
-  vpc_id        = var.vpc_id
+  vpc_id        = var.vpc_id_from_vpc_peering
   auto_accept   = true
 }
 
