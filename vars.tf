@@ -20,7 +20,9 @@ variable "root_vpc" {
 
 ############### for_vpc_peering  ################
 
-
+variable "root_vpc_id_jenkins_cidr" {
+  type = string
+}
 
 variable "root_vpc_id_jenkins" {
   type = string
