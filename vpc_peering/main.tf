@@ -6,7 +6,7 @@ resource "aws_vpc_peering_connection" "vpc_peering_jenkins" {
 }
 
 data "aws_vpc" "local_vpc" {
-  id = var.vpc_id
+  id = var.vpc_id_jenkins
   
 }
 
