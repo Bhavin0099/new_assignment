@@ -14,6 +14,8 @@ root_peer_owner_id = 362382172439
 
 root_vpc_id_jenkins_cidr= "172.31.0.0/16"
 
+peer_region = "ap-southeast-1"
+
 ################ for public/private subnet #################
 
 
