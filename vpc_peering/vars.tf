@@ -6,6 +6,10 @@ variable "peer_vpc_id_created" {
   type = string
 }
 
+variable "peer_region" {
+  type = string
+}
+
 variable "vpc_id_jenkins" {
   type = string
 }
