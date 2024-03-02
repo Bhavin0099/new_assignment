@@ -9,7 +9,7 @@ resource "aws_key_pair" "public_key" {
   key_name   = var.public_key_pair
   public_key = tls_private_key.rsa-4096.public_key_openssh
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.rsa-4096.private_key_pem}' > ./${public_key_pair}.pem"
+    command = "echo '${tls_private_key.rsa-4096.private_key_pem}' > ./'${public_key_pair}'.pem"
   }
 }
 
@@ -17,7 +17,7 @@ resource "local_file" "private_key" {
   content = tls_private_key.rsa-4096.private_key_pem
   filename = var.private_key_pair
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.rsa-4096.private_key_pem}' > ./${private_key_pair}.pem"
+    command = "echo '${tls_private_key.rsa-4096.private_key_pem}' > ./'${private_key_pair}'.pem"
   }
 }
 
