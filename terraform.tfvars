@@ -10,6 +10,7 @@ root_vpc_tag = "Elasticsearch_vpc"
 
 root_vpc_id_jenkins = "vpc-0e3056d8fcb0dc815" 
 
+root_peer_owner_id = 362382172439
 
 ################ for public/private subnet #################
 
@@ -60,7 +61,7 @@ root_private_key = "Elasticsearch_private_key"
 
 root_private_instance_count_number = 1
 
-root_instance_ami = "ami-0fa377108253bf620"
+root_instance_ami = "ami-0728ff6537bad32a5"
 
 root_private_instance_type = "t2.medium"
 
