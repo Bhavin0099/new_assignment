@@ -24,6 +24,10 @@ variable "root_vpc_id_jenkins_cidr" {
   type = string
 }
 
+variable "jenkins_route_table_id" {
+  type = list(string)
+}
+
 variable "peer_region" {
   type = string
 }
