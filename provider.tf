@@ -11,3 +11,4 @@ provider "aws" {
   alias  = "peer"
   region = "ap-southeast-1"
 }
+
