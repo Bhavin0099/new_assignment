@@ -22,7 +22,6 @@ module "for_vpc_peering" {
   peer_route_table_id = [module.for_route.private_route_output, module.for_route.public_route_output]
   peer_owner_id = var.root_peer_owner_id
   peer_region = var.peer_region
-  depends_on = [module.for_route]
 }
 
 
