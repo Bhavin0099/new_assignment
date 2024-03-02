@@ -6,6 +6,15 @@ module "for_vpc" {
   my_vpc = var.root_vpc
 }
 
+############### module for vpc peering ######################
+
+module "for_vpc_peering" {
+  source = "./vpc_peering"
+  peer_vpc_id_created = module.for_vpc.vpc_output
+  vpc_id_jenkins = var.root_vpc_id_jenkins
+}
+
+
 ################ module for public/private subnet#################
 
 
