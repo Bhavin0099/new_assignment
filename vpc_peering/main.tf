@@ -1,6 +1,7 @@
 resource "aws_vpc_peering_connection" "vpc_peering_jenkins" {
   peer_owner_id = var.peer_owner_id
   peer_vpc_id   = var.peer_vpc_id_created
+  peer_region = var.peer_region
   vpc_id        = var.vpc_id_jenkins
   auto_accept   = true
 
