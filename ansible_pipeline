@@ -1,0 +1,22 @@
+pipeline {
+     agent any
+     environment {
+        REPO_URL = "https://github.com/Bhavin0099/new_assignment.git"
+         INSTALL_WORKSPACE = "/var/lib/jenkins/${JOB_NAME}"
+     }
+     stages {
+         stage('Clone Repository') {
+             steps {
+                 checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: "${REPO_URL}"]]])
+             }
+         }
+         stage('Install dependency') {
+             steps {
+                 dir('ansible') {
+                 sh "ansible-playbook test.yml"
+                 }
+             }
+         }
+        
+     }
+}
