@@ -6,3 +6,4 @@ resource "aws_vpc" "elasticsearch_vpc" {
     Name = var.vpc_tag
   }
 }
+<!-- hello -->
