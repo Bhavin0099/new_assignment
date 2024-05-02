@@ -1,0 +1,7 @@
+---
+- name: installing redis
+  hosts: aws_ec2
+  become: yes
+  roles:
+    - redis
+
