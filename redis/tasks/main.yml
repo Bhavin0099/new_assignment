@@ -1,13 +1,26 @@
 
 ---
-- name: Update apt cache
-  apt:
+- name: Update repositories cache and install "ubuntu" package
+  ansible.builtin.apt:
     update_cache: yes
+  when: ansible_os_family == "Debian"
 
-- name: Install Redis
-  apt:
-    name: redis-server
-    state: present
+- name: Update repositories cache and install "RedHat" package
+  ansible.builtin.yum:
+    update_cache: yes
+  when: ansible_os_family == "RedHat"
+
+- name: install the latest version of redis on CentOS
+  yum:
+    name: redis
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: install the latest version of redis on Debian
+  apt: 
+    name: redis
+    state: latest
+  when: ansible_os_family == "Debian"
 
 - name: Start Redis service
   service:
